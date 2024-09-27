@@ -152,6 +152,8 @@ body {
 /* AGE CALCULATOR COMPONENT STYLES */
 
 .age-calculator-component {
+    min-width: 21.4375rem;
+    max-width: 32.8125rem;
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
@@ -164,7 +166,7 @@ body {
 
 .data-input-form {
     display: grid;
-    grid-template-columns: repeat(3, minmax(87px, 33%));
+    grid-template-columns: repeat(3, minmax(5.4375rem, 33%));
     column-gap: 1rem;
 }
 
@@ -182,9 +184,9 @@ body {
 
     & input {
         padding: 0.5rem 0.75rem;
-        border: 1px solid var(--clr-light-grey);
+        border: 0.0625rem solid var(--clr-light-grey);
         border-radius: 0.25rem;
-        font-size: clamp(1rem, 2.25dvw, var(--fs-inputs));
+        font-size: clamp(1rem, 3dvw, var(--fs-inputs));
     }
 }
 
@@ -199,7 +201,7 @@ body {
     }
 
     & .line {
-        border-bottom: 2px solid var(--clr-off-white);
+        border-bottom: 0.125rem solid var(--clr-off-white);
     }
 
     & button.calculate-btn {
@@ -223,10 +225,36 @@ body {
     display: flex;
     gap: 0.75rem;
     align-items: center;
-    font-size: clamp(2.75rem, 7.5dvw, 3.75rem);
+    font-size: clamp(2.75rem, 6.75dvw, 4rem);
     font-family: var(--ff-italic-extra-bold);
 
     & .result-number {
         color: var(--clr-purple);
+    }
+}
+
+@media (min-width: 48rem) {
+    body {
+        padding: 4rem;
+    }
+
+    main {
+        overflow: auto;
+    }
+
+    .age-calculator-component {
+        max-width: 51.5625rem;
+        padding: 3rem;
+        border-radius: 2rem 2rem 12rem 2rem;
+    }
+
+    .data-input-form {
+        grid-template-columns: repeat(4, minmax(22.5%, 12.5rem));
+    }
+
+    .middle-container {
+        & button.calculate-btn {
+            justify-self: end;
+        }
     }
 }
