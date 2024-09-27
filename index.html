@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/images/favicon-32x32.png"
+        />
+
+        <link rel="stylesheet" href="./style.css" />
+
+        <script src="./main.js" defer></script>
+
+        <title>Frontend Mentor | Age calculator app</title>
+    </head>
+    <body>
+        <main>
+            <div class="age-calculator-component">
+                <form id="birth-date-form" action="" class="data-input-form">
+                    <div class="input-wrapper">
+                        <label for="day">day</label>
+                        <input type="text" name="day" id="day" />
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="month">month</label>
+                        <input type="text" name="month" id="month" />
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="year">year</label>
+                        <input type="text" name="year" id="year" />
+                    </div>
+                </form>
+                <div class="middle-container">
+                    <hr />
+                    <button
+                        class="calculate-btn"
+                        form="birth-date-form"
+                        type="submit"
+                    >
+                        <img
+                            src="./assets/images/icon-arrow.svg"
+                            alt="White arrow pointing down"
+                        />
+                    </button>
+                </div>
+                <div class="results-container">
+                    <div class="result-wrapper">
+                        <span id="result-year" class="result-number">--</span>
+                        <p class="result-text">years</p>
+                    </div>
+                    <div class="result-wrapper">
+                        <span id="result-month" class="result-number">--</span>
+                        <p class="result-text">months</p>
+                    </div>
+                    <div class="result-wrapper">
+                        <span id="result-day" class="result-number">--</span>
+                        <p class="result-text">days</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="attribution">
+            Challenge by
+            <a href="https://www.frontendmentor.io/challenges" target="_blank"
+                >Frontend Mentor</a
+            >. Coded by
+            <a href="https://www.frontendmentor.io/profile/HeberRios"
+                >Heber Rios</a
+            >.
+        </footer>
+    </body>
+</html>
