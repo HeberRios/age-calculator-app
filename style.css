@@ -126,9 +126,11 @@ body {
     display: grid;
     justify-content: center;
     align-content: center;
+    row-gap: 3rem;
     font-family: var(--ff-normal-bold);
     color: var(--clr-off-black);
     background-color: var(--clr-off-white);
+    padding: 4rem 1rem;
 }
 
 /* ATTRIBUTION STYLES */
@@ -145,4 +147,86 @@ body {
 .attribution a:hover,
 .attribution a:focus {
     color: hsl(228, 99%, 70%);
+}
+
+/* AGE CALCULATOR COMPONENT STYLES */
+
+.age-calculator-component {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 3rem 1.5rem;
+    border-radius: 1.5rem 1.5rem 6rem 1.5rem;
+    background-color: var(--clr-white);
+}
+
+/* DATA INPUT STYLES */
+
+.data-input-form {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(87px, 33%));
+    column-gap: 1rem;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    & label {
+        text-transform: uppercase;
+        font-size: clamp(0.75rem, 2.25dvw, 1.25rem);
+        color: var(--clr-smokey-grey);
+        letter-spacing: 0.1875rem;
+    }
+
+    & input {
+        padding: 0.5rem 0.75rem;
+        border: 1px solid var(--clr-light-grey);
+        border-radius: 0.25rem;
+        font-size: clamp(1rem, 2.25dvw, var(--fs-inputs));
+    }
+}
+
+/* MIDDLE CONTAINER STYLES */
+
+.middle-container {
+    display: grid;
+    align-items: center;
+
+    & * {
+        grid-area: 1/1;
+    }
+
+    & .line {
+        border-bottom: 2px solid var(--clr-off-white);
+    }
+
+    & button.calculate-btn {
+        max-width: 5rem;
+        width: 20%;
+        justify-self: center;
+        border: none;
+        border-radius: 50%;
+        padding: 1.125rem;
+        background-color: var(--clr-purple);
+
+        & .arrow-icon {
+            width: 100%;
+        }
+    }
+}
+
+/* RESULTS CONTAINER STYLES */
+
+.result-wrapper {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    font-size: clamp(2.75rem, 7.5dvw, 3.75rem);
+    font-family: var(--ff-italic-extra-bold);
+
+    & .result-number {
+        color: var(--clr-purple);
+    }
 }
