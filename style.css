@@ -121,6 +121,10 @@ h6 {
 
 /* GENERAL STYLES */
 
+*:focus {
+    outline: .125rem solid var(--clr-purple);
+}
+
 body {
     min-height: 100dvh;
     display: grid;
@@ -212,6 +216,7 @@ body {
         border-radius: 50%;
         padding: 1.125rem;
         background-color: var(--clr-purple);
+        transition: all 0.4s;
 
         & .arrow-icon {
             width: 100%;
@@ -231,6 +236,25 @@ body {
     & .result-number {
         color: var(--clr-purple);
     }
+}
+
+/* ACTIVE STATES STYLES */
+
+.input-wrapper {
+    & input:focus,
+    input:hover {
+        cursor: pointer;
+    }
+}
+
+button.calculate-btn:focus {
+    outline: .125rem solid var(--clr-off-black);
+}
+
+button.calculate-btn:hover {
+    cursor: pointer;
+    background-color: var(--clr-off-black);
+    transform: translateY(0.25rem);
 }
 
 @media (min-width: 48rem) {
