@@ -122,7 +122,7 @@ h6 {
 /* GENERAL STYLES */
 
 *:focus {
-    outline: .125rem solid var(--clr-purple);
+    outline: 0.125rem solid var(--clr-purple);
 }
 
 body {
@@ -248,13 +248,37 @@ body {
 }
 
 button.calculate-btn:focus {
-    outline: .125rem solid var(--clr-off-black);
+    outline: 0.125rem solid var(--clr-off-black);
 }
 
 button.calculate-btn:hover {
     cursor: pointer;
     background-color: var(--clr-off-black);
     transform: translateY(0.25rem);
+}
+
+/* INPUT ERRORS STYLES */
+
+.input-wrapper {
+    label.error-active,
+    span.error-info.error-active {
+        color: var(--clr-light-red);
+    }
+
+    input.error-active {
+        border: 0.0625rem solid var(--clr-light-red);
+    }
+
+    span.error-info.error-active {
+        opacity: 1;
+    }
+}
+
+span.error-info {
+    font-family: var(--ff-italic-regular);
+    margin-top: 0.5rem;
+    font-size: clamp(0.45rem, 2.25dvw, 0.75rem);
+    opacity: 0;
 }
 
 @media (min-width: 48rem) {
