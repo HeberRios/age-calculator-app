@@ -123,6 +123,7 @@ h6 {
 
 *:focus {
     outline: 0.125rem solid var(--clr-purple);
+    outline-offset: 0.125rem;
 }
 
 body {
@@ -263,14 +264,11 @@ button.calculate-btn:hover {
     label.error-active,
     span.error-info.error-active {
         color: var(--clr-light-red);
+        opacity: 1;
     }
 
     input.error-active {
         border: 0.0625rem solid var(--clr-light-red);
-    }
-
-    span.error-info.error-active {
-        opacity: 1;
     }
 }
 
