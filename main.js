@@ -6,6 +6,9 @@ const dayInput = document.querySelector("#day");
 const monthInput = document.querySelector("#month");
 const yearInput = document.querySelector("#year");
 const calculateBtn = document.querySelector("#calculate");
+const resultYear = document.querySelector("#result-year");
+const resultMonth = document.querySelector("#result-month");
+const resultDay = document.querySelector("#result-day");
 
 // REGULAR EXPRESSIONS
 
@@ -96,10 +99,6 @@ function validateDate() {
         0
     ).getDate();
 
-    // validateYear();
-    // validateMonth();
-    // validateDay();
-
     if (validateYear() && validateMonth() && validateDay()) {
         if (monthDays < +dayInput.value) {
             dayInput.previousElementSibling.classList.add("error-active");
@@ -117,11 +116,61 @@ function validateDate() {
             yearInput.nextElementSibling.textContent = "";
             yearInput.nextElementSibling.classList.remove("error-active");
         } else {
-            return;
+            calculateAge(yearInput.value, monthInput.value, dayInput.value);
         }
     } else {
         return;
     }
+}
+
+function calculateAge(year, month, day) {
+    let resultYears = 0;
+    let resultMonths = 0;
+    let resultDays = 0;
+
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth() + 1;
+    const currentDay = new Date().getDate();
+
+    // First calculate the years
+
+    resultYears = currentYear - +year;
+
+    // Second calculate the months
+
+    if (currentMonth < +month) {
+        resultYears--;
+        resultMonths = currentMonth + 12 - +month;
+    } else {
+        resultMonths = currentMonth - +month;
+    }
+
+    // Third calculate the days
+
+    if (currentDay < +day) {
+        resultMonths--;
+        const previousMonth = new Date().getMonth();
+        const daysInPreviousMonth = new Date(
+            currentYear,
+            previousMonth,
+            0
+        ).getDate();
+
+        resultDays = currentDay + daysInPreviousMonth - +day;
+    } else {
+        resultDays = currentDay - +day;
+    }
+
+    // check final results
+
+    if (resultMonths < 0) {
+        resultYears--;
+        resultMonths = 12 + resultMonths;
+    }
+
+    resultYear.textContent = resultYears;
+    resultMonth.textContent = resultMonths;
+    resultDay.textContent = resultDays;
 }
 
 // EVENT LISTENERS
