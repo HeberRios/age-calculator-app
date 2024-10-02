@@ -117,6 +117,14 @@ function validateYear() {
     }
 }
 
+function checkForInvalidInputs() {
+    return (
+        yearInput.classList.contains("error-active") ||
+        monthInput.classList.contains("error-active") ||
+        dayInput.classList.contains("error-active")
+    );
+}
+
 function validateDate() {
     const monthDays = new Date(
         +yearInput.value,
@@ -124,7 +132,11 @@ function validateDate() {
         0
     ).getDate();
 
-    if (validateYear() && validateMonth() && validateDay()) {
+    validateDay();
+    validateMonth();
+    validateYear();
+
+    if (!checkForInvalidInputs()) {
         if (monthDays < +dayInput.value) {
             dayInput.previousElementSibling.classList.add("error-active");
             dayInput.classList.add("error-active");
