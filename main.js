@@ -9,14 +9,39 @@ const calculateBtn = document.querySelector("#calculate");
 const resultYear = document.querySelector("#result-year");
 const resultMonth = document.querySelector("#result-month");
 const resultDay = document.querySelector("#result-day");
+const resultsArray = [resultYear, resultMonth, resultDay];
 
 // REGULAR EXPRESSIONS
 
-const dayRegex = /^(0+[1-9]|[12]\d|3[01])$/;
-const monthRegex = /^(0+[1-9]|1[0-2])$/;
+const dayRegex = /^(0[1-9]|[12]\d|3[01])$/;
+const monthRegex = /^(0[1-9]|1[0-2])$/;
 const yearRegex = /^[1-9]{1}\d{3}$/;
 
+// VARIABLES
+const speedValue = 50;
+
 // FUNCTIONS
+
+function displayResultNumbers() {
+    resultsArray.forEach(function (resultElement) {
+        resultElement.textContent = "0";
+
+        function animate() {
+            const result = +resultElement.getAttribute("data-result");
+            const data = +resultElement.innerText;
+
+            const time = result / speedValue;
+
+            if (data < result) {
+                resultElement.innerText = Math.ceil(data + time);
+                setTimeout(animate, 10);
+            } else {
+                resultElement.innerText = result;
+            }
+        }
+        animate();
+    });
+}
 
 function validateDay() {
     if (dayInput.value === "") {
@@ -168,9 +193,11 @@ function calculateAge(year, month, day) {
         resultMonths = 12 + resultMonths;
     }
 
-    resultYear.textContent = resultYears;
-    resultMonth.textContent = resultMonths;
-    resultDay.textContent = resultDays;
+    resultYear.setAttribute("data-result", resultYears);
+    resultMonth.setAttribute("data-result", resultMonths);
+    resultDay.setAttribute("data-result", resultDays);
+
+    displayResultNumbers();
 }
 
 // EVENT LISTENERS
